@@ -13,13 +13,14 @@ public class Nine {
         String N = "N";
 
         Random randomNum = new Random();
-        int dice1 = randomNum.nextInt(6 - 1 + 1) + 1;
-        int dice2 = randomNum.nextInt(6 - 1 + 1) + 1;
+        int dice1 = 0;
+        int dice2 = 0;
 
         int playerPoints = 0;
         int computerPoints = 0;
 
         if (answer.equals(Y)) {
+            dice1 = randomNum.nextInt(6 - 1 + 1) + 1;
             System.out.println("You rolled " + dice1);
             playerPoints += dice1;
             System.out.print("Do you want to roll again? Y/N ");
@@ -27,31 +28,34 @@ public class Nine {
             if (answer.equals(N)) {
                 System.out.println("Your points are " + playerPoints);
             } else if (answer.equals(Y)) {
+                dice2 = randomNum.nextInt(6 - 1 + 1) + 1;
                 System.out.println("You rolled " + dice2 + " and your total is " + (playerPoints + dice2));
                 playerPoints += dice2;    
             }
         } else {
             System.out.println("Maybe some other time");
         }
-
-        System.out.println("Computer rolled " + dice1);
+        
+        dice1 = randomNum.nextInt(6 - 1 + 1) + 1;
+        System.out.println("The computer rolled " + dice1);
         computerPoints += dice1;
         if (computerPoints <= 4) {
+            dice2 = randomNum.nextInt(6 - 1 + 1) + 1;
             System.out.println("The computer rolled again and gets " + dice2 + " and total is " + (computerPoints += dice2));
         } else {
             System.out.println("The computer rolled " + dice1);
         }
 
         if (computerPoints > playerPoints && computerPoints <= 9) {
-            System.out.println("Computer wins");
+            System.out.println("The computer wins");
         } else if (playerPoints > computerPoints && playerPoints <= 9) {
-            System.out.println("You win");
+            System.out.println("You won");
         } else if (computerPoints >= 10) {
-            System.out.println("You win");
+            System.out.println("You won");
         } else if (playerPoints >= 10) {
-            System.out.println("Computer wins");
+            System.out.println("The computer wins");
         } else if (computerPoints >= 10 && playerPoints >= 10) {
-            System.out.println("Computer wins");
+            System.out.println("The computer wins");
         } else {
             System.out.println("It's a tie!");
         }
