@@ -9,9 +9,5 @@ public class DangerousWork {
 
         int moneyToEarn = scan.nextInt();
         int daysToWork;
-
-        for (int i = 0; i < moneyToEarn; i++) {
-            
-        }
     }
 }
