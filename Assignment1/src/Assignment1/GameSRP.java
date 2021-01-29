@@ -23,7 +23,7 @@ public class GameSRP {
             draw++;
             System.out.println(alternatives);
             playerChoice = scan.nextInt();
-        } else if (computerChoice == 1 && playerChoice == 2) {
+        } else if (computerChoice == 2 && playerChoice == 3) {
             System.out.println("You won, computer had rock");
             playerScore++;
             System.out.println(alternatives);
@@ -42,7 +42,7 @@ public class GameSRP {
             System.out.println("You lost, computer had paper");
             computerScore++;
             System.out.println(alternatives);
-            playerChoice = scan.nextInt();
+            playerChoice = scan.nextInt();        
         } else if (playerChoice == 3 && computerChoice == 1) {
             System.out.println("You lost, computer had scissor");
             computerScore++;
@@ -58,7 +58,10 @@ public class GameSRP {
         
         if (playerChoice == 0) {
         System.out.println("Score: " + playerScore + " (you) " + computerScore + " (computer) " + draw + " (draw)");
-        }  
+        } else {
+            System.out.println("You have to choose between 1, 2, 3 or 0");
+        }
+
         scan.close();    
     }    
 }
