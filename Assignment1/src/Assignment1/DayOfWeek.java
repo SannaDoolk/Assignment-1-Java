@@ -33,8 +33,19 @@ public class DayOfWeek {
         j = (year / 100);
    
         h = q + (26 * (m + 1) / 10) + k + (k / 4) + (j / 4) + (5 * j);
-        
-        System.out.println(h % 7);
+
+        h = h % 7;
+
+        String[] weekDay = new String[7];
+        weekDay[0] = "Saturday";
+        weekDay[1] = "Sunday";
+        weekDay[2] = "Monday";
+        weekDay[3] = "Tuesday";
+        weekDay[4] = "Wednesday";
+        weekDay[5] = "Thursday";
+        weekDay[6] = "Friday";
+
+        System.out.println("Day of week is " + weekDay[h]);
 
         scan.close();
     }
