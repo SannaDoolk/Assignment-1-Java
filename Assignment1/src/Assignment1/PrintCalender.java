@@ -14,7 +14,8 @@ public class PrintCalender {
         month = month - 1;
         System.out.println(nameOfMonth(month) + " " + year);
         System.out.println("-----------------------------");
-        System.out.println("Mon\tTue\tWed\tThu1\tFri\tSat\tSun");
+        System.out.println("Mon\tTue\tWed\tThu\tFri\tSat\tSun");
+        leapYear(year);
 
     }
 
@@ -52,4 +53,26 @@ public class PrintCalender {
             return 0;
         }
     }
+
+    // If a year is divisble by 4 it's a leap year, unless it's divisble by 100, then it must also be divisble by 400 to be a leap year.
+    public static boolean leapYear(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    System.out.println("leap");
+                    return true;
+                } else {
+                    System.out.println("no leap");
+                    return false;
+                } 
+            } else {
+                System.out.println("leap");
+                return true;
+            }  
+        } else {
+            System.out.println("not leap");
+            return false;
+        }
+    }
+
 }
