@@ -11,8 +11,11 @@ public class PrintCalender {
         int year = scan.nextInt();
         System.out.print("Enter a month (1-12): ");
         int month = scan.nextInt();
+        month = month - 1;
         System.out.println(nameOfMonth(month) + " " + year);
         System.out.println("-----------------------------");
+        System.out.println("Mon\tTue\tWed\tThu1\tFri\tSat\tSun");
+
     }
 
     public static String nameOfMonth(int month) {
@@ -31,6 +34,22 @@ public class PrintCalender {
         months[10] = "November";
         months[11] = "December";
 
-        return months[month - 1];
+        return months[month];
+    }
+
+    public static int howManyDaysInMonth(int month) {
+        int daysInMonth = 0;
+        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 11) {
+            daysInMonth = 31;
+            return daysInMonth;
+        } else if (month == 4 || month == 6 || month == 10 || month == 11) {
+            daysInMonth = 30;
+            return daysInMonth;
+        } else if (month == 2) {
+            daysInMonth = 28;
+            return daysInMonth;
+        } else {
+            return 0;
+        }
     }
 }
