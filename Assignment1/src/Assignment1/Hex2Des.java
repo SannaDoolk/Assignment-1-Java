@@ -3,6 +3,16 @@ package Assignment1;
 import java.util.Scanner;
 
 public class Hex2Des {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter a hex number: ");
+        String input = scan.nextLine();
+
+        hexToDecimal(input);  
+        
+        scan.close();
+    }
+
     public static double hexToDecimal(String str) {
         str = str.toUpperCase();
         int length = str.length();
@@ -18,15 +28,5 @@ public class Hex2Des {
         System.out.println("The decimal value for " + str + " is " + result);
         
         return result;
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a hex number: ");
-        String input = scan.nextLine();
-
-        hexToDecimal(input);  
-        
-        scan.close();
     }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class PrintCalender {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        
         System.out.print("Enter a year after 1800: ");
         int year = scan.nextInt();
         System.out.print("Enter a month (1-12): ");
@@ -12,7 +13,7 @@ public class PrintCalender {
         System.out.println(nameOfMonth(month) + " " + year);
         System.out.println("-----------------------------");
         System.out.println("Mon\tTue\tWed\tThu\tFri\tSat\tSun"); 
-
+        printCalendar(year, month);
 
         scan.close();    
     }
@@ -58,6 +59,13 @@ public class PrintCalender {
         }
     }
 
+    public static int calenderStartDay (int month, int year) {
+        int startDayOfCalender = 2; // Year 1800 started on a Wednesday
+        int numOfDaysPassed = daysPerYearSinceStart(month, year);
+        int startDay = (numOfDaysPassed + startDayOfCalender) % 7;
+        return startDay;
+    }
+
     // If a year is divisble by 4 it's a leap year, unless it's divisble by 100, then it must also be divisble by 400 to be a leap year.
     public static boolean leapYear(int year) {
         if (year % 4 == 0) {
@@ -74,7 +82,6 @@ public class PrintCalender {
             return false;
         }
     }
-
 
     // How many days per year has passed since start of calender, add 365 or 366 days for every year.
     public static int daysPerYearSinceStart(int month, int year) {
@@ -96,5 +103,22 @@ public class PrintCalender {
             daysSinceStart += howManyDaysInMonth(i, year);
         }
         return daysSinceStart;
+    }
+
+    public static void printCalendar(int year, int month) {
+        int startOnDay = calenderStartDay(month, year);
+        int daysInMonth = howManyDaysInMonth(month, year);
+
+        int i = 0;
+        for (i = 0; i < startOnDay; i++) {
+            System.out.print("\t");
+        }
+        for (i = 1; i <= daysInMonth; i++) {
+            System.out.print(i + "\t");
+            if ((i + startOnDay) % 7 == 0) {
+                System.out.println();
+            }
+        }
+        System.out.println();
     }
 }

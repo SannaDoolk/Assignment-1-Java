@@ -12,15 +12,14 @@ public class Nine {
         String Y = "Y";
         String N = "N";
 
-        Random randomNum = new Random();
-        int dice1 = 0;
-        int dice2 = 0;
+        int dice1;
+        int dice2;
 
         int playerPoints = 0;
         int computerPoints = 0;
 
         if (answer.equals(Y)) {
-            dice1 = randomNum.nextInt(6 - 1 + 1) + 1;
+            dice1 = rollDice();
             System.out.println("You rolled " + dice1);
             playerPoints += dice1;
             System.out.print("Do you want to roll again? Y/N ");
@@ -28,7 +27,7 @@ public class Nine {
             if (answer.equals(N)) {
                 System.out.println("Your points are " + playerPoints);
             } else if (answer.equals(Y)) {
-                dice2 = randomNum.nextInt(6 - 1 + 1) + 1;
+                dice2 = rollDice();
                 System.out.println("You rolled " + dice2 + " and your total is " + (playerPoints + dice2));
                 playerPoints += dice2;    
             }
@@ -36,11 +35,11 @@ public class Nine {
             System.out.println("Maybe some other time");
         }
         
-        dice1 = randomNum.nextInt(6 - 1 + 1) + 1;
+        dice1 = rollDice();
         System.out.println("The computer rolled " + dice1);
         computerPoints += dice1;
         if (computerPoints <= 4) {
-            dice2 = randomNum.nextInt(6 - 1 + 1) + 1;
+            dice2 = rollDice();
             System.out.println("The computer rolled again and gets " + dice2 + " and total is " + (computerPoints += dice2));
         } else {
             System.out.println("The computer rolled " + dice1);
@@ -61,5 +60,10 @@ public class Nine {
         }
 
         scan.close();
+    }
+    public static int rollDice() {
+        Random randomNum = new Random();
+        int roll = randomNum.nextInt(6 - 1 + 1) + 1;
+        return roll;
     }
 }
