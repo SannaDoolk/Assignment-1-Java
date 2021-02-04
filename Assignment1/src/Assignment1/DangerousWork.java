@@ -8,6 +8,7 @@ public class DangerousWork {
         System.out.println("How much money do you want to earn?");
 
         int moneyToEarn = scan.nextInt();
-        int daysToWork;
+        
+        scan.close();
     }
 }
