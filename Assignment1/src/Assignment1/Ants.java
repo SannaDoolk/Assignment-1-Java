@@ -36,23 +36,27 @@ public class Ants {
 
             if (rndDir == 0) {
                 y--;
-                if (y < 0) {
+                if (y < 0) { // The ant should not be able to go outside of the board.
                 y++;
+                steps--; // The step should not be counted.  
                 }
             } else if (rndDir == 1) {
                 y++;
                 if (y > 7) {
                     y--; 
+                    steps--;
             }
             } else if (rndDir == 2) {
                     x--;
                 if (x < 0) {
                     x++;
+                    steps--;
                 } 
             } else if (rndDir == 3) {
                    x++;
                 if (x > 7) {
                    x--;
+                   steps--;
                 } 
             }
 
