@@ -61,6 +61,8 @@ public class Nine {
 
         scan.close();
     }
+
+    //Method to roll the dice.
     public static int rollDice() {
         Random randomNum = new Random();
         int roll = randomNum.nextInt(6 - 1 + 1) + 1;

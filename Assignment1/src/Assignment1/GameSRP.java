@@ -9,6 +9,7 @@ public class GameSRP {
 
        String alternatives = "Scissor (" + 1 + "), rock (" + 2 + "), paper (" + 3 + ") or " + 0 + " to quit: ";
        System.out.println(alternatives);
+       
        int playerChoice = scan.nextInt();
        int computerChoice;
        int playerScore = 0;
