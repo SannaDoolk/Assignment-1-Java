@@ -13,7 +13,7 @@ public class Time {
         int minutes = secondsInput / 60 - (hours * 60);
         int seconds = secondsInput % 60;
 
-        System.out.print(hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
+        System.out.println(hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
 
         scan.close();
     }
