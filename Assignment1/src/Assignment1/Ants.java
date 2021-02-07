@@ -66,6 +66,7 @@ public class Ants {
         return steps;
         }
 
+        // Give the ant a random direction to walk in.
         public static int randomDirection() {
             Random rnd = new Random();
             int z = rnd.nextInt(4);

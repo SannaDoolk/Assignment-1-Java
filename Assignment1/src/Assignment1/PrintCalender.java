@@ -13,12 +13,13 @@ public class PrintCalender {
         System.out.println(nameOfMonth(month) + " " + year);
         System.out.println("-----------------------------");
         System.out.println("Mon\tTue\tWed\tThu\tFri\tSat\tSun"); 
+
         printCalendar(year, month);
 
         scan.close();    
     }
 
-    public static String nameOfMonth(int month) {
+    public static String nameOfMonth (int month) {
         String[] months = new String[13];
 
         months[0] = ""; // Empty so that the month number will be the right index.
@@ -38,7 +39,7 @@ public class PrintCalender {
         return months[month];
     }
 
-    public static int howManyDaysInMonth(int month, int year) {
+    public static int howManyDaysInMonth (int month, int year) {
         int daysInMonth = 0;
         if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
             daysInMonth = 31;
@@ -60,7 +61,7 @@ public class PrintCalender {
     }
 
     // If a year is divisble by 4 it's a leap year, unless it's divisble by 100, then it must also be divisble by 400 to be a leap year.
-    public static boolean leapYear(int year) {
+    public static boolean leapYear (int year) {
         if (year % 4 == 0) {
             if (year % 100 == 0) {
                 if (year % 400 == 0) {
@@ -85,7 +86,7 @@ public class PrintCalender {
     }
 
     // How many days per year has passed since start of calender, add 365 or 366 days for every year.
-    public static int daysPerYearSinceStart(int month, int year) {
+    public static int daysPerYearSinceStart (int month, int year) {
         int totalDays = 0;
         int startYear = 1800;
         for (int i = startYear; i < year; i++) {
@@ -99,7 +100,7 @@ public class PrintCalender {
     }
 
     // Add the passed days for the month(s) before the entered month to the days that has passed for every full year in daysPerYearSinceStart method.
-    public static int passedDaysPerMonth(int month, int year, int daysSinceStart) {
+    public static int passedDaysPerMonth (int month, int year, int daysSinceStart) {
         for (int i = 1; i < month; i++) {
             daysSinceStart += howManyDaysInMonth(i, year);
         }
@@ -107,7 +108,7 @@ public class PrintCalender {
     }
 
     // Do the outprint of the calender month.
-    public static void printCalendar(int year, int month) {
+    public static void printCalendar (int year, int month) {
         int startOnDay = calenderStartDay(month, year);
         int daysInMonth = howManyDaysInMonth(month, year);
 
@@ -123,3 +124,6 @@ public class PrintCalender {
         System.out.println();
     }
 }
+
+
+// Parts of soloution inspired by https://liveexample.pearsoncmg.com/html/PrintCalendarWithLineNumber.html?
